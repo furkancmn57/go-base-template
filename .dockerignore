@@ -1,0 +1,8 @@
+.git
+.idea
+.cursor
+bin
+*.md
+.env
+.env.*
+!src/config/env/.env.example
