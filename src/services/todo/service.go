@@ -116,7 +116,7 @@ func (s *Service) Complete(ctx context.Context, id string) (*responses.TodoRespo
 	}
 
 	if entity.Completed {
-		return nil, apperr.Conflict("todo is already completed")
+		return nil, apperr.Conflict(constants.TodoAlreadyCompleted, "todo is already completed")
 	}
 
 	entity.Completed = true
@@ -155,13 +155,13 @@ func (s *Service) Delete(ctx context.Context, id string) *apperr.Error {
 func (s *Service) findByID(ctx context.Context, id string) (*entities.Todo, *apperr.Error) {
 	todoID, err := uuid.Parse(id)
 	if err != nil {
-		return nil, apperr.BadRequest("invalid todo id")
+		return nil, apperr.BadRequest(constants.TodoInvalidID, "invalid todo id")
 	}
 
 	var entity entities.Todo
 	if err := s.db.WithContext(ctx).First(&entity, "id = ?", todoID).Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, apperr.NotFound("todo not found")
+			return nil, apperr.NotFound(constants.TodoNotFound, "todo not found")
 		}
 		return nil, apperr.Internal(err)
 	}

@@ -16,6 +16,7 @@ opsiyonel GraphQL (`GRAPHQL_ENABLED`, varsayılan kapalı).
 - Outbox / `cmd/worker` / `cmd/` / `internal/` / `platform/` / `features/` yok
 - `"Get"` öneki yok (`Todos`, `TodoById`)
 - Ham `error` handler'dan sızmaz — `*apperr.Error` + `apperr.WriteHTTP`
+- Hata `code` string'leri hardcoded değil — `constants/` (`TODO_NOT_FOUND`, …)
 - Fat controller yok (`*gorm.DB` controller'da olmaz)
 - Elle OpenAPI YAML bakımı yok — annotation'lardan `make openapi` ile `src/docs` üretilir ve commit edilir
 

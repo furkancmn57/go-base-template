@@ -4,7 +4,11 @@
 // out through WriteHTTP.
 package apperr
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/furkancmn57/go-base-template/src/constants"
+)
 
 // Error is the typed error every service method returns instead of a raw
 // Go error. It carries enough information for the transport layer to render
@@ -49,41 +53,41 @@ func Wrap(status int, code, message string, err error) *Error {
 }
 
 // BadRequest returns a 400 error for malformed input.
-func BadRequest(message string) *Error {
-	return New(http.StatusBadRequest, "BAD_REQUEST", message)
+func BadRequest(code, message string) *Error {
+	return New(http.StatusBadRequest, code, message)
 }
 
 // Validation returns a 422 error carrying field-level validation failures.
 func Validation(details map[string]string) *Error {
 	return &Error{
 		Status:  http.StatusUnprocessableEntity,
-		Code:    "VALIDATION_ERROR",
+		Code:    constants.ValidationError,
 		Message: "one or more fields are invalid",
 		Details: details,
 	}
 }
 
 // NotFound returns a 404 error.
-func NotFound(message string) *Error {
-	return New(http.StatusNotFound, "NOT_FOUND", message)
+func NotFound(code, message string) *Error {
+	return New(http.StatusNotFound, code, message)
 }
 
 // Conflict returns a 409 error.
-func Conflict(message string) *Error {
-	return New(http.StatusConflict, "CONFLICT", message)
+func Conflict(code, message string) *Error {
+	return New(http.StatusConflict, code, message)
 }
 
 // Unauthorized returns a 401 error.
 func Unauthorized(message string) *Error {
-	return New(http.StatusUnauthorized, "UNAUTHORIZED", message)
+	return New(http.StatusUnauthorized, constants.Unauthorized, message)
 }
 
 // Forbidden returns a 403 error.
 func Forbidden(message string) *Error {
-	return New(http.StatusForbidden, "FORBIDDEN", message)
+	return New(http.StatusForbidden, constants.Forbidden, message)
 }
 
 // Internal returns a 500 error, wrapping the original cause for logging.
 func Internal(err error) *Error {
-	return Wrap(http.StatusInternalServerError, "INTERNAL_ERROR", "something went wrong", err)
+	return Wrap(http.StatusInternalServerError, constants.InternalError, "something went wrong", err)
 }

@@ -48,6 +48,17 @@ src/extensions/rabbitmq.go     # AddRabbitMQ + Publish/Subscribe/Close
 
 Exchange name: `constants.RabbitMQExchange`. Topic strings: `constants/{domain}_topics.go`.
 
+## Error codes
+
+API JSON `code` values live in `constants/` (not hardcoded in services/controllers):
+
+```text
+src/constants/errors.go           # shared: INVALID_REQUEST_BODY, VALIDATION_ERROR, …
+src/constants/{domain}_errors.go  # e.g. todo_errors.go → TODO_NOT_FOUND
+```
+
+Call sites: `apperr.NotFound(constants.TodoNotFound, "todo not found")`.
+
 ## Events — domain folder, one event per file
 
 Folder = domain / entity the event belongs to (NotificationApi `Events/News/`).

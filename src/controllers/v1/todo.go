@@ -7,6 +7,7 @@ import (
 
 	"github.com/furkancmn57/go-base-template/src/common"
 	"github.com/furkancmn57/go-base-template/src/common/apperr"
+	"github.com/furkancmn57/go-base-template/src/constants"
 	"github.com/furkancmn57/go-base-template/src/models/requests"
 	_ "github.com/furkancmn57/go-base-template/src/models/responses"
 	todoservice "github.com/furkancmn57/go-base-template/src/services/todo"
@@ -46,7 +47,7 @@ func (ctrl *TodoController) Register(api fiber.Router) {
 func (ctrl *TodoController) Create(c *fiber.Ctx) error {
 	var req requests.CreateTodoRequest
 	if err := c.BodyParser(&req); err != nil {
-		return apperr.WriteHTTP(c, apperr.BadRequest("invalid request body"))
+		return apperr.WriteHTTP(c, apperr.BadRequest(constants.InvalidRequestBody, "invalid request body"))
 	}
 
 	resp, appErr := ctrl.service.Create(c.Context(), req)
@@ -100,7 +101,7 @@ func (ctrl *TodoController) ByID(c *fiber.Ctx) error {
 func (ctrl *TodoController) Update(c *fiber.Ctx) error {
 	var req requests.UpdateTodoRequest
 	if err := c.BodyParser(&req); err != nil {
-		return apperr.WriteHTTP(c, apperr.BadRequest("invalid request body"))
+		return apperr.WriteHTTP(c, apperr.BadRequest(constants.InvalidRequestBody, "invalid request body"))
 	}
 
 	resp, appErr := ctrl.service.Update(c.Context(), c.Params("id"), req)
