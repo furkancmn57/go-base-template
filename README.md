@@ -1,4 +1,4 @@
-# go-base-template
+# Go Base Template
 
 Horizontal-layer Go API template (NotificationApi-style). Single binary entry at `src/main.go`.
 
@@ -15,7 +15,7 @@ Horizontal-layer Go API template (NotificationApi-style). Single binary entry at
 | HTTP | Fiber v2 |
 | DB | GORM + Postgres |
 | Cache | Redis |
-| Messaging | RabbitMQ (best-effort pub/sub) |
+| Messaging | RabbitMQ |
 | Validation | ozzo-validation |
 | API docs | OpenAPI (swaggo) at `/openapi/*` |
 | GraphQL | Optional (`GRAPHQL_ENABLED=true`) |
