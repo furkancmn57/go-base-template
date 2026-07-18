@@ -8,14 +8,14 @@ Naming: [`STRUCTURE.md`](STRUCTURE.md).
 
 ## Stack
 
-Fiber v2 · GORM/Postgres · Redis · RabbitMQ · ozzo-validation · OpenAPI (swaggo)
+Fiber v2 · GORM/Postgres · Redis · RabbitMQ · ozzo-validation · OpenAPI (swaggo) · optional GraphQL
 
 ## Layout
 
 ```text
 src/main.go
 src/config/  extensions/  common/  constants/  enums/  interfaces/
-src/controllers/v1/
+src/controllers/v1/  graphql/   # GraphQL optional; same services as REST
 src/services/{resource}/ (+ validations/)  services/cache/
 src/data/{entities,mappings}/  data/postgres.go  data/migrate.go
 src/models/{requests,responses}/
@@ -36,6 +36,7 @@ make run
 | API | http://localhost:8080/api/v1 |
 | Health | http://localhost:8080/health |
 | OpenAPI | http://localhost:8080/openapi/index.html |
+| GraphQL | http://localhost:8080/graphql (set `GRAPHQL_ENABLED=true`) |
 
 ## Make
 

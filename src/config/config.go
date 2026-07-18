@@ -16,6 +16,7 @@ type Config struct {
 	Postgres Postgres
 	Redis    Redis
 	RabbitMQ RabbitMQ
+	GraphQL  GraphQL
 }
 
 // Load reads .env (if present) and parses process environment into Config.
