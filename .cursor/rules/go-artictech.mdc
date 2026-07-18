@@ -42,7 +42,7 @@ src/events/{domain}/  consumers/{domain}/
 
 Outbound HTTP client gerektiğinde `src/proxies/` eklenir.
 
-İsimlendirme: [STRUCTURE.md](STRUCTURE.md).
+İsimlendirme: [STRUCTURE.md](../STRUCTURE.md).
 
 ## Prensipler
 

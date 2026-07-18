@@ -4,7 +4,7 @@ Horizontal-layer Go API template (NotificationApi-style layout). Single binary,
 no repository, no outbox, no `cmd/`/`internal/`.
 
 Rules: [`.cursor/rules/go-artictech.mdc`](.cursor/rules/go-artictech.mdc) ·
-Naming: [`STRUCTURE.md`](STRUCTURE.md).
+Naming: [`.cursor/STRUCTURE.md`](.cursor/STRUCTURE.md).
 
 ## Stack
 
