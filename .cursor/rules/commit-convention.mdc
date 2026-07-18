@@ -1,0 +1,26 @@
+---
+description: Conventional Commits — tüm git commit mesajları bu formata uyar
+alwaysApply: true
+---
+
+# Commit Convention
+
+Commit mesajları [`.cursor/COMMIT.md`](../COMMIT.md) içindeki **Conventional Commits** kurallarına uyar.
+
+## Zorunlu format
+
+```text
+<type>(<optional-scope>): <short description>
+```
+
+- Imperative, kısa subject; gerekirse body'de **neden**
+- Yaygın type'lar: `feat`, `fix`, `docs`, `refactor`, `build`, `chore`, `test`, `ci`, `perf`
+- Scope örnekleri: `todo`, `graphql`, `openapi`, `config`, `messaging`, `cursor`
+
+## Örnek
+
+```text
+feat(graphql): enable optional /graphql behind GRAPHQL_ENABLED
+```
+
+Commit isterken bu dosyayı ve `COMMIT.md`'yi kaynak kabul et; eski serbest cümle stilini kullanma.
