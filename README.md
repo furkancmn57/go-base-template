@@ -1,6 +1,6 @@
 # Go Base Template
 
-Horizontal-layer Go API template (NotificationApi-style). Single binary entry at `src/main.go`.
+Horizontal-layer Go API template. Single binary entry at `src/main.go`.
 
 | Doc | Path |
 |-----|------|
